@@ -23,16 +23,33 @@
 </nav>
 
 <!-- iframe หน้าแรก -->
-<iframe id="frame1" class="active" src="https://deka.supremecourt.or.th/" allowfullscreen></iframe>
+<iframe id="frame1" src="https://deka.supremecourt.or.th/" allowfullscreen></iframe>
 
-<!-- iframe หน้า 2 -->
-<iframe id="frame2" src="https://deka.supremecourt.or.th/search" allowfullscreen></iframe>
+<!-- iframe หน้า 2 เปิดมาพร้อมแสดง search -->
+<iframe id="frame2" class="active" src="https://deka.supremecourt.or.th/search#search" allowfullscreen></iframe>
 
 <script>
 function showFrame(id) {
   document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  const f = document.getElementById(id);
+  f.classList.add('active');
+
+  // ถ้าเปิด frame2 เราพยายามเลื่อน iframe (ใช้ได้ถ้าเป็น same-origin)
+  if(id === 'frame2'){
+    try {
+      // scroll 500px ลงไป (ถ้าเว็บอนุญาต)
+      f.contentWindow.scrollTo(0, 500);
+    } catch(e){
+      // cross-origin จะ error แต่ก็ไม่เป็นไร
+      console.log("ไม่สามารถ scroll iframe ข้ามโดเมนได้");
+    }
+  }
 }
+
+// เปิดหน้า 2 ทันที (เด้งไป search)
+window.addEventListener('load', () => {
+  showFrame('frame2');
+});
 </script>
 
 </body>
