@@ -9,8 +9,20 @@
     header { background-color:#1b365d; color:white; text-align:center; padding:1rem; font-size:1.25rem; font-weight:600; }
     nav { text-align:center; background:#f0f0f0; padding:0.5rem; }
     nav button { margin:0 0.5rem; font-weight:600; padding:0.3rem 0.6rem; cursor:pointer; }
-    iframe { width:100%; height:calc(100vh - 130px); border:none; display:none; }
-    iframe.active { display:block; }
+    main { text-align:center; padding:3rem 1rem; }
+    main h1 { font-size:1.5rem; margin-bottom:1rem; }
+    main p { margin-bottom:2rem; font-size:1.1rem; }
+    main a.button {
+      display:inline-block;
+      background-color:#1b365d;
+      color:white;
+      text-decoration:none;
+      padding:0.6rem 1.2rem;
+      font-weight:600;
+      border-radius:0.3rem;
+      transition:0.2s;
+    }
+    main a.button:hover { background-color:#15305a; }
   </style>
 </head>
 <body>
@@ -18,40 +30,31 @@
 <header>ค้นหาฎีกา - ศาลฎีกา</header>
 
 <nav>
-  <button onclick="showFrame('frame1')">หน้าหลัก</button>
-  <button onclick="showFrame('frame2')">หน้า 2</button>
+  <button onclick="goHome()">หน้าหลัก</button>
+  <button onclick="goSearch()">หน้า 2 (ค้นหา)</button>
 </nav>
 
-<!-- iframe หน้าแรก -->
-<iframe id="frame1" src="https://deka.supremecourt.or.th/" allowfullscreen></iframe>
-
-<!-- iframe หน้า 2 เปิดมาพร้อมแสดง search -->
-<iframe id="frame2" class="active" src="https://deka.supremecourt.or.th/search#search" allowfullscreen></iframe>
+<main id="content">
+  <h1>ยินดีต้อนรับ</h1>
+  <p>เลือกหน้าที่คุณต้องการเข้าถึง</p>
+  <a class="button" href="https://deka.supremecourt.or.th/" target="_blank">ไปหน้าหลัก</a>
+  <a class="button" href="https://deka.supremecourt.or.th/search" target="_blank">ไปหน้าค้นหา</a>
+</main>
 
 <script>
-function showFrame(id) {
-  document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
-  const f = document.getElementById(id);
-  f.classList.add('active');
-
-  // ถ้าเปิด frame2 เราพยายามเลื่อน iframe (ใช้ได้ถ้าเป็น same-origin)
-  if(id === 'frame2'){
-    try {
-      // scroll 500px ลงไป (ถ้าเว็บอนุญาต)
-      f.contentWindow.scrollTo(0, 500);
-    } catch(e){
-      // cross-origin จะ error แต่ก็ไม่เป็นไร
-      console.log("ไม่สามารถ scroll iframe ข้ามโดเมนได้");
-    }
-  }
+function goHome(){
+  window.open('https://deka.supremecourt.or.th/', '_blank');
 }
 
-// เปิดหน้า 2 ทันที (เด้งไป search)
+function goSearch(){
+  window.open('https://deka.supremecourt.or.th/search', '_blank');
+}
+
+// เปิดหน้าค้นหาอัตโนมัติเมื่อโหลด
 window.addEventListener('load', () => {
-  showFrame('frame2');
+  goSearch();
 });
 </script>
 
 </body>
 </html>
-
