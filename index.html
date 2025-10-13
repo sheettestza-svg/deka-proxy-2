@@ -1,46 +1,39 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ค้นหาฎีกา - ศาลฎีกา</title>
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-<style>
-  body { margin:0; font-family:"Sarabun", sans-serif; background-color:#f0e6d2; }
-  
-  /* Header แบบวันพีส */
-  header {
-    background: linear-gradient(90deg, #ffcb05, #ff6b6b);
-    color: white;
-    text-align:center;
-    padding:1rem;
-    font-size:2rem;
-    font-family: 'Luckiest Guy', cursive;
-    text-shadow: 2px 2px #00000088;
-    letter-spacing: 2px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ค้นหาฎีกา - ศาลฎีกา</title>
+  <style>
+    body { margin:0; font-family:"Sarabun", sans-serif; background-color:#f7f7f7; }
+    header { background-color:#1b365d; color:white; text-align:center; padding:1rem; font-size:1.25rem; font-weight:600; }
+    nav { text-align:center; background:#f0f0f0; padding:0.5rem; }
+    nav button { margin:0 0.5rem; font-weight:600; padding:0.3rem 0.6rem; cursor:pointer; }
+    iframe { width:100%; height:calc(100vh - 130px); border:none; display:none; }
+    iframe.active { display:block; }
+  </style>
+</head>
+<body>
 
-  /* Nav ปุ่มสไตล์โจรสลัด */
-  nav {
-    text-align:center;
-    background:#1b365d;
-    padding:0.5rem;
-  }
-  nav button {
-    margin:0 0.5rem;
-    font-weight:700;
-    padding:0.5rem 1rem;
-    cursor:pointer;
-    border:2px solid #ffe600;
-    border-radius:8px;
-    background: linear-gradient(to bottom, #ffe600, #ff8c00);
-    color:#1b365d;
-    font-family: 'Luckiest Guy', cursive;
-    transition: 0.3s;
-  }
-  nav button:hover {
-    transform: scale(1.1);
-    background: line
+<header>ค้นหาฎีกา - ศาลฎีกา</header>
+
+<nav>
+  <button onclick="showFrame('frame1')">หน้าหลัก</button>
+  <button onclick="showFrame('frame2')">หน้า 2</button>
+</nav>
+
+<!-- iframe หน้าแรก -->
+<iframe id="frame1" class="active" src="https://deka.supremecourt.or.th/" allowfullscreen></iframe>
+
+<!-- iframe หน้า 2 -->
+<iframe id="frame2" src="https://deka.supremecourt.or.th/search" allowfullscreen></iframe>
+
+<script>
+function showFrame(id) {
+  document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
