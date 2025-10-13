@@ -8,16 +8,33 @@
     body { margin:0; font-family:"Sarabun", sans-serif; background-color:#f7f7f7; }
     header { background-color:#1b365d; color:white; text-align:center; padding:1rem; font-size:1.25rem; font-weight:600; }
     nav { text-align:center; background:#f0f0f0; padding:0.5rem; }
-    nav a { margin:0 1rem; color:#1b365d; text-decoration:none; font-weight:600; }
-    iframe { width:100%; height:calc(100vh - 130px); border:none; }
+    nav button { margin:0 0.5rem; font-weight:600; padding:0.3rem 0.6rem; cursor:pointer; }
+    iframe { width:100%; height:calc(100vh - 130px); border:none; display:none; }
+    iframe.active { display:block; }
   </style>
 </head>
 <body>
-  <header>ค้นหาฎีกา - ศาลฎีกา</header>
-  <nav>
-    <a href="index.html">หน้าหลัก</a> |
-    <a href="page2.html">หน้า 2</a>
-  </nav>
-  <iframe src="https://deka.supremecourt.or.th/search" allowfullscreen></iframe>
+
+<header>ค้นหาฎีกา - ศาลฎีกา</header>
+
+<nav>
+  <button onclick="showFrame('frame1')">หน้าหลัก</button>
+  <button onclick="showFrame('frame2')">หน้า 2</button>
+</nav>
+
+<!-- iframe หน้าแรก -->
+<iframe id="frame1" class="active" src="https://deka.supremecourt.or.th/search" allowfullscreen></iframe>
+
+<!-- iframe หน้า 2 -->
+<iframe id="frame2" src="https://deka.supremecourt.or.th/search" allowfullscreen></iframe>
+<!-- เปลี่ยน URL ของ iframe ตัวนี้เป็นเว็บอื่นได้ -->
+
+<script>
+function showFrame(id) {
+  document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
 </body>
 </html>
