@@ -3,124 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ค้นหาฎีกา - ศาลฎีกา</title>
+  <title>ค้นหาฎีกา - ศาลฎีกา (One Piece Theme)</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
     body {
       margin: 0;
       font-family: "Sarabun", sans-serif;
-      background: radial-gradient(circle at top, #87ceeb, #1e6091 80%);
-      background-attachment: fixed;
+      background: radial-gradient(circle at top, #ffe680, #ffcc33, #ff9933);
+      color: #222;
       overflow: hidden;
     }
 
-    /* ===== Header วันพีซสไตล์ ===== */
     header {
-      background: linear-gradient(180deg, #ffcc00 0%, #b87333 100%);
-      color: #2a1500;
+      background: linear-gradient(90deg, #001f3f, #004080);
+      color: #fff;
       text-align: center;
-      padding: 1.8rem;
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      text-shadow: 
-        0 0 5px #fff8d6, 
-        0 0 15px #fdd835,
-        0 0 25px #ffb300;
-      border-bottom: 5px solid #3e1f00;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px #000;
       position: relative;
-      overflow: hidden;
     }
 
-    /* เอฟเฟกต์ลม/เกลียวคลื่นเคลื่อนไหว */
-    header::before {
-      content: "";
+    header::after {
+      content: "🏴‍☠️";
       position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        45deg,
-        rgba(255,255,255,0.1) 0,
-        rgba(255,255,255,0.1) 3px,
-        transparent 3px,
-        transparent 10px
-      );
-      animation: moveWaves 10s linear infinite;
-      pointer-events: none;
+      right: 1rem;
+      top: 0.8rem;
+      font-size: 1.8rem;
     }
 
-    @keyframes moveWaves {
-      from { background-position: 0 0; }
-      to { background-position: 200px 200px; }
-    }
-
-    /* ===== ปุ่มเมนู ===== */
     nav {
       text-align: center;
-      background: #f3e4c1;
-      padding: 0.6rem;
-      box-shadow: inset 0 -3px 8px rgba(0,0,0,0.2);
+      background: rgba(255, 255, 255, 0.6);
+      padding: 0.5rem;
+      backdrop-filter: blur(5px);
     }
 
     nav button {
       margin: 0 0.5rem;
+      padding: 0.4rem 0.8rem;
       font-weight: 700;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border: 2px solid #6b3e00;
+      border: 2px solid #004080;
+      background: #fff8dc;
       border-radius: 8px;
-      background: linear-gradient(180deg, #ffe082, #ffb300);
-      color: #3e1f00;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-      transition: transform 0.2s, box-shadow 0.2s;
-      font-family: "Treasure Map Deadhand", "Sarabun", sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
     }
 
     nav button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px #ffeb3b;
+      background: #004080;
+      color: #fff;
     }
 
-    /* ===== Iframe ===== */
+    #voice-btn {
+      background: #ff4d4d;
+      color: white;
+      border: 2px solid #660000;
+    }
+
+    #voice-btn:hover {
+      background: #cc0000;
+    }
+
     iframe {
       width: 100%;
-      height: calc(100vh - 160px);
+      height: calc(100vh - 150px);
       border: none;
       display: none;
-      background-color: #fff;
     }
 
     iframe.active {
       display: block;
     }
 
-    /* ===== คลื่นน้ำข้างล่างแบบอนิเมะ ===== */
-    .waves {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 200%;
-      height: 100px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 100%;
-      animation: waveMotion 6s linear infinite;
-      transform: translateY(50%);
-      z-index: -1;
+    footer {
+      background: #001f3f;
+      color: #fff;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
     }
-
-    @keyframes waveMotion {
-      from { transform: translateX(0) translateY(50%); }
-      to { transform: translateX(-50%) translateY(50%); }
-    }
-
   </style>
 </head>
 <body>
-  <header>ค้นหาฎีกา - ศาลฎีกา</header>
+  <header>ค้นหาฎีกา - ศาลฎีกา ⚓</header>
 
   <nav>
-    <button onclick="showFrame('frame1')">🌊 หน้าหลัก</button>
-    <button onclick="showFrame('frame2')">🗺️ ค้นหา</button>
+    <button onclick="showFrame('frame1')">🏠 หน้าหลัก</button>
+    <button onclick="showFrame('frame2')">🔍 ค้นหา</button>
+    <button id="voice-btn" onclick="speakPage()">🔊 อ่านออกเสียงหน้านี้</button>
   </nav>
 
   <!-- iframe หน้าแรก -->
@@ -129,13 +103,22 @@
   <!-- iframe หน้า 2 -->
   <iframe id="frame2" src="https://deka.supremecourt.or.th/" allowfullscreen></iframe>
 
-  <!-- คลื่นตกแต่ง -->
-  <div class="waves"></div>
+  <footer>🌊 One Piece Theme © 2025 | Inspired by Luffy’s Adventure 🏴‍☠️</footer>
 
   <script>
     function showFrame(id) {
       document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+    }
+
+    function speakPage() {
+      const text = document.title + " " + document.body.innerText;
+      const utter = new SpeechSynthesisUtterance(text);
+      utter.lang = 'th-TH';
+      utter.rate = 1.0;
+      utter.pitch = 1.0;
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utter);
     }
   </script>
 </body>
