@@ -3,50 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>เดก้า - ค้นหา</title>
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>เดก้า - ศาลฎีกา</title>
 <style>
-body {
-  margin:0;
-  font-family:"Sarabun", sans-serif;
-  background-color:#f0e6d2;
-}
-
-/* Nav ไอคอนสไตล์มินิมอลธีมฟ้า */
-nav {
-  text-align:center;
-  background:#1b365d;
-  padding:1rem;
-}
-
-nav .icon-button {
-  cursor:pointer;
-  font-size:40px;
-  color:#007BFF;
-  margin:0 1rem;
-  transition: 0.3s;
-}
-
-nav .icon-button:hover {
-  transform: scale(1.1);
-  color:#ffffff;
-}
-
-/* iframe */
-iframe {
-  width:100%;
-  height:calc(100vh - 80px); /* เหลือพื้นที่ nav */
-  border:none;
-  display:block; /* แสดงทันที */
-}
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 </style>
 </head>
 <body>
-
-<nav>
-  <span class="material-icons icon-button" title="ค้นหา">search</span>
-</nav>
 
 <iframe src="https://deka.supremecourt.or.th/search" allowfullscreen>
   ขออภัย ไม่สามารถโหลดหน้าเว็บนี้ได้
