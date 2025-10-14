@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>เดก้า - ปุ่มไอคอน</title>
+<title>เดก้า - หน้าแรก</title>
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
@@ -38,34 +38,19 @@ iframe {
   width:100%;
   height:calc(100vh - 80px); /* เหลือพื้นที่ nav */
   border:none;
-  display:none;
-}
-
-iframe.active {
-  display:block;
+  display:block; /* แสดงหน้าแรกเลย */
 }
 </style>
 </head>
 <body>
 
 <nav>
-  <span class="material-icons icon-button" onclick="showFrame('frame1')" title="หน้าหลัก">home</span>
-  <span class="material-icons icon-button" onclick="showFrame('frame2')" title="ค้นหา">search</span>
+  <span class="material-icons icon-button" title="หน้าหลัก">home</span>
 </nav>
 
-<iframe id="frame1" class="active" src="https://deka.supremecourt.or.th/" allowfullscreen>
+<iframe id="frame1" src="https://deka.supremecourt.or.th/search" allowfullscreen>
   ขออภัย ไม่สามารถโหลดหน้าเว็บนี้ได้
 </iframe>
 
-<iframe id="frame2" src="https://deka.supremecourt.or.th/search" allowfullscreen>
-  ขออภัย ไม่สามารถโหลดหน้าเว็บนี้ได้
-</iframe>
-
-<script>
-function showFrame(id) {
-  document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-</script>
 </body>
 </html>
