@@ -3,18 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ค้นหาฎีกา - ศาลฎีกา</title>
+<title>ค้นหาฎีกา - Law3S</title>
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; font-family:"Sarabun", sans-serif; background-color:#f0e6d2; }
-  
-  /* Header แบบวันพีส */
+  body {
+    margin: 0;
+    font-family: "Sarabun", sans-serif;
+    background-color: #f0e6d2;
+  }
+
   header {
     background: linear-gradient(90deg, #ffcb05, #ff6b6b);
     color: white;
-    text-align:center;
-    padding:1rem;
-    font-size:2rem;
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
     font-family: 'Luckiest Guy', cursive;
     text-shadow: 2px 2px #00000088;
     letter-spacing: 2px;
@@ -23,57 +26,19 @@
     z-index: 100;
   }
 
-  /* Nav ปุ่มสไตล์โจรสลัด */
-  nav {
-    text-align:center;
-    background:#1b365d;
-    padding:0.5rem;
-  }
-  nav button {
-    margin:0 0.5rem;
-    font-weight:700;
-    padding:0.5rem 1rem;
-    cursor:pointer;
-    border:2px solid #ffe600;
-    border-radius:8px;
-    background: linear-gradient(to bottom, #ffe600, #ff8c00);
-    color:#1b365d;
-    font-family: 'Luckiest Guy', cursive;
-    transition: 0.3s;
-  }
-  nav button:hover {
-    transform: scale(1.1);
-    background: linear-gradient(to bottom, #ff8c00, #ffe600);
-  }
-
   iframe {
-    width:100%;
-    height:calc(100vh - 140px);
-    border:none;
-    display:none;
+    width: 100%;
+    height: calc(100vh - 80px);
+    border: none;
   }
-  iframe.active { display:block; }
-
 </style>
 </head>
 <body>
 
-<header>ค้นหาฎีกา - ศาลฎีกา</header>
+<header>ค้นหาฎีกา - Law3S</header>
 
-<nav>
-  <button onclick="showFrame('frame1')">หน้าหลัก</button>
-  <button onclick="showFrame('frame2')">ค้นหา</button>
-</nav>
-
-<iframe id="frame1" class="active" src="https://deka.supremecourt.or.th/search" allowfullscreen></iframe>
-<iframe id="frame2" src="https://deka.supremecourt.or.th/" allowfullscreen></iframe>
-
-<script>
-function showFrame(id) {
-  document.querySelectorAll('iframe').forEach(f => f.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
-</script>
+<!-- โหลดหน้าเว็บค้นหาโดยตรง -->
+<iframe src="https://deka.law3s.com/" allowfullscreen></iframe>
 
 </body>
 </html>
