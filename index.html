@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ค้นหาฎีกา - ศาลฎีกา</title>
+<title>เดก้า - ปุ่มไอคอน</title>
 <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <style>
 body {
   margin:0;
@@ -12,51 +13,30 @@ body {
   background-color:#f0e6d2;
 }
 
-/* Header แบบวันพีส */
-header {
-  background: linear-gradient(90deg, #ffcb05, #ff6b6b);
-  color: white;
-  text-align:center;
-  padding:1rem;
-  font-size:2rem;
-  font-family: 'Luckiest Guy', cursive;
-  text-shadow: 2px 2px #00000088;
-  letter-spacing: 2px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-/* Nav ปุ่มสไตล์มินิมอลธีมฟ้า */
+/* Nav ไอคอนสไตล์มินิมอลธีมฟ้า */
 nav {
   text-align:center;
   background:#1b365d;
-  padding:0.5rem;
+  padding:1rem;
 }
 
-nav button {
-  margin: 0 0.5rem;
-  font-weight:700;
-  padding:0.5rem 1rem;
+nav .icon-button {
   cursor:pointer;
-  border: 2px solid #007BFF; /* ขอบฟ้า */
-  border-radius: 8px;
-  background-color: #E3F2FD; /* ฟ้าอ่อนพื้นหลัง */
-  color: #007BFF; /* ตัวอักษรฟ้า */
-  font-family: 'Luckiest Guy', cursive;
+  font-size:40px;
+  color:#007BFF;
+  margin:0 1rem;
   transition: 0.3s;
 }
 
-nav button:hover {
-  transform: scale(1.05);
-  background-color: #007BFF; /* พื้นหลังฟ้าเข้ม */
-  color: #ffffff; /* ตัวอักษรขาว */
+nav .icon-button:hover {
+  transform: scale(1.1);
+  color:#ffffff;
 }
 
 /* iframe */
 iframe {
   width:100%;
-  height:calc(100vh - 140px);
+  height:calc(100vh - 80px); /* เหลือพื้นที่ nav */
   border:none;
   display:none;
 }
@@ -67,11 +47,10 @@ iframe.active {
 </style>
 </head>
 <body>
-<header>ค้นหาฎีกา - ศาลฎีกา</header>
 
 <nav>
-  <button onclick="showFrame('frame1')">หน้าหลัก</button>
-  <button onclick="showFrame('frame2')">ค้นหา</button>
+  <span class="material-icons icon-button" onclick="showFrame('frame1')" title="หน้าหลัก">home</span>
+  <span class="material-icons icon-button" onclick="showFrame('frame2')" title="ค้นหา">search</span>
 </nav>
 
 <iframe id="frame1" class="active" src="https://deka.supremecourt.or.th/search" allowfullscreen>
